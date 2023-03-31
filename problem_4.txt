@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> balances = new HashMap<>();
+        balances.put("Anand", 0);
+        balances.put("Balaji", 0);
+        balances.put("Chaitanya", 0);
+        balances.put("Divya", 0);
+
+        balances.put("Balaji", balances.get("Balaji") - 2000);
+        balances.put("Anand", balances.get("Anand") + 500);
+        balances.put("Balaji", balances.get("Balaji") + 500);
+        balances.put("Chaitanya", balances.get("Chaitanya") + 500);
+        balances.put("Divya", balances.get("Divya") + 500);
+
+        balances.put("Anand", balances.get("Anand") - 250);
+        balances.put("Balaji", balances.get("Balaji") + 250);
+        balances.put("Chaitanya", balances.get("Chaitanya") + 250);
+
+        System.out.println("Settlements:");
+        for (String person : balances.keySet()) {
+            int balance = balances.get(person);
+            if (balance > 0) {
+                System.out.println(person + " owes " + balance + " to others.");
+            } else if (balance < 0) {
+                System.out.println(person + " is owed " + (-balance) + " by others.");
+            } else {
+                System.out.println(person + " does not owe or is owed any money.");
+            }
+        }
+    }
+}
